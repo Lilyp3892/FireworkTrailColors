@@ -1,0 +1,13 @@
+name: FireworkTrailColors
+version: '${project.version}'
+main: me.spiral_cat.fireworktrailcolors.FireworkTrailColors
+api-version: 1.18
+# defining our commands.
+commands:
+  # create a new command called FireworkTrailColors.
+  FireworkTrailColors:
+    description: Turns off firework trail
+    # show to the player how they should call the command. You would also show arguments here.
+    usage: /<command>
+    # create other names we can call the command by.
+    aliases: [ftc]
