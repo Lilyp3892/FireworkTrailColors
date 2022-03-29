@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -58,7 +56,6 @@ public class FileHandler {
     }
     public static void defaultWrite(Player p) { //all basically same as above. This is called in PlayerJoinListener to make a default json file for a player if no file is present.
 
-        List<Player> players = new ArrayList<>();
         Map<UUID, TrailColor> colorMap = new HashMap<>();
 
         TrailColor tc1 = new TrailColor(255, 255, 255, false); //uses these default values

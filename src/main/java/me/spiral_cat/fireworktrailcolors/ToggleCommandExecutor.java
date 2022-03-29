@@ -45,7 +45,9 @@ public class ToggleCommandExecutor implements CommandExecutor {
                     p.sendMessage("§6FTC help:"); //sends help dialog
                     p.sendMessage("§6Enabling/Disabling particles: /ftc"); //sends help dialog
                     p.sendMessage("§6Changing particle color: /ftc <red> <green> <blue>"); //sends help dialog
-                } else { //if command had one argument but it wasn't help in any caps value
+                    p.sendMessage("§6Uses RGB Values. For more information or to report a bug:");
+                    p.sendMessage("§6https://github.com/Lilyp3892/FireworkTrailColors");
+                } else { //if command had one argument, but it wasn't help in any caps value
                     p.sendMessage("§4FTC: Error! not enough arguments! Use \"/ftc help\" for more information"); //sends a chat message to the player to alert the player that they did not use enough arguments
                 }
             } else { // if you use 4 or more arguments (or less than 0 not that that's possible)
