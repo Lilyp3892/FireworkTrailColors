@@ -2,16 +2,35 @@ package me.spiral_cat.fireworktrailcolors;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class FireworkTrailColors extends JavaPlugin {
+import me.spiral_cat.fireworktrailcolors.executors.ToggleCommandExecutor;
+import me.spiral_cat.fireworktrailcolors.listeners.FireworkTriggerListener;
+import me.spiral_cat.fireworktrailcolors.listeners.PlayerJoinListener;
 
-    @Override
-    public void onEnable() {
-        getServer().getPluginManager().registerEvents(new FireworkTriggerEvent(this), this); //enables this class
-        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this); //enables this class
-        getServer().getPluginCommand("FireworkTrailColors").setExecutor(new ToggleCommandExecutor()); //enables this command and this class
-    }
-
-    @Override
-    public void onDisable() {
-    }
+public final class FireworkTrailColors extends JavaPlugin
+{
+	private static FireworkTrailColors instance;
+	
+	public static FireworkTrailColors getInstance()
+	{
+		return FireworkTrailColors.instance;
+	}
+	
+	private static void setInstance(FireworkTrailColors instance)
+	{
+		FireworkTrailColors.instance = instance;
+	}
+	
+	@Override
+	public void onEnable()
+	{
+		FireworkTrailColors.setInstance(this);
+		
+		getServer().getPluginManager().registerEvents(new FireworkTriggerListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+		getServer().getPluginCommand("FireworkTrailColors").setExecutor(new ToggleCommandExecutor());
+	}
+	
+	@Override
+	public void onDisable()
+	{}
 }
