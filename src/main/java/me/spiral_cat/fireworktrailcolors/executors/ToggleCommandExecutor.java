@@ -29,12 +29,19 @@ public class ToggleCommandExecutor implements CommandExecutor
 			}
 			else if (args.length == 1 && args[0].equalsIgnoreCase("help"))
 			{
-				p.sendMessage("§6FTC help:");
-				p.sendMessage("§6Enabling/Disabling particles: /ftc");
-				p.sendMessage("§6Changing particle color: /ftc <red> <green> <blue>");
-				p.sendMessage("§6Uses RGB Values. For more information or to report a bug:");
-				p.sendMessage("§6https://github.com/Lilyp3892/FireworkTrailColors");
+				p.sendMessage("§6FTC help:"); //sends help dialog
+				p.sendMessage("§6Enabling/Disabling particles: /ftc"); //sends help dialog
+				p.sendMessage("§6Changing particle color: /ftc <red> <green> <blue>"); //sends help dialog
+				p.sendMessage("§6Rainbow particle color: /ftc rainbow"); //sends help dialog
+				p.sendMessage("§6To disable rainbow particle color set your particle color to any rgb value"); //sends help dialog
+				p.sendMessage("§6Uses RGB Values. For more information or to report a bug:"); //sends help dialog
+				p.sendMessage("§6https://github.com/Lilyp3892/FireworkTrailColors"); //sends help dialog
 				return false;
+			}
+			else if(args.length == 1 && args[0].equalsIgnoreCase("rainbow"))
+			{
+				FileHandler.write(p.getUniqueId(), -2, -2, -2, true); //-2 is used for referencing rainbow particle colors in the files
+				p.sendMessage("§aFTC: Success! Color changed to: §cR§6a§ei§an§9b§bo§dw");
 			}
 			else
 			{
@@ -46,6 +53,7 @@ public class ToggleCommandExecutor implements CommandExecutor
 		{
 			return false;
 		}
+		return false;
 	}
 	
 	private boolean toggleParticles(Player p)
