@@ -1,15 +1,11 @@
 package me.spiral_cat.fireworktrailcolors;
 
-import me.spiral_cat.fireworktrailcolors.Rainbow.RainbowMaker;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.spiral_cat.fireworktrailcolors.executors.ToggleCommandExecutor;
 import me.spiral_cat.fireworktrailcolors.listeners.FireworkTriggerListener;
 import me.spiral_cat.fireworktrailcolors.listeners.PlayerJoinListener;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
+import me.spiral_cat.fireworktrailcolors.rainbow.RainbowMaker;
 
 public final class FireworkTrailColors extends JavaPlugin
 {
@@ -25,14 +21,14 @@ public final class FireworkTrailColors extends JavaPlugin
 		FireworkTrailColors.instance = instance;
 	}
 
-	public static List<Color> color = new ArrayList<>(); //sets up list of rainbow
 
 	@Override
 	public void onEnable()
 	{
 		FireworkTrailColors.setInstance(this);
 
-		color = RainbowMaker.InitRainbow(); //returns List of rainbow rgb codes
+		// Every class should do what its purpose is. So The RainbowMaker class should contain the rainbow codes as well.
+		RainbowMaker.initRainbow();
 		getServer().getPluginManager().registerEvents(new FireworkTriggerListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 		getServer().getPluginCommand("FireworkTrailColors").setExecutor(new ToggleCommandExecutor());

@@ -13,8 +13,6 @@ public class ToggleCommandExecutor implements CommandExecutor
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args)
 	{
-		// This method was way too complex. Keep your methods small and, specifically whenever you have a condition chain like this, try extracting your
-		// execution paths into additional methods.
 		if (sender instanceof Player)
 		{
 			Player p = (Player) sender;
@@ -29,19 +27,23 @@ public class ToggleCommandExecutor implements CommandExecutor
 			}
 			else if (args.length == 1 && args[0].equalsIgnoreCase("help"))
 			{
-				p.sendMessage("§6FTC help:"); //sends help dialog
-				p.sendMessage("§6Enabling/Disabling particles: /ftc"); //sends help dialog
-				p.sendMessage("§6Changing particle color: /ftc <red> <green> <blue>"); //sends help dialog
-				p.sendMessage("§6Rainbow particle color: /ftc rainbow"); //sends help dialog
-				p.sendMessage("§6To disable rainbow particle color set your particle color to any rgb value"); //sends help dialog
-				p.sendMessage("§6Uses RGB Values. For more information or to report a bug:"); //sends help dialog
-				p.sendMessage("§6https://github.com/Lilyp3892/FireworkTrailColors"); //sends help dialog
+				// Please stop with the in-line comments, that makes your code impossible to read.
+				// Instead, put the comment segments above the respective line.
+				// Also remember: Comment on *why* you are doing things, not *how*.
+				p.sendMessage("§6FTC help:");
+				p.sendMessage("§6Enabling/Disabling particles: /ftc");
+				p.sendMessage("§6Changing particle color: /ftc <red> <green> <blue>");
+				p.sendMessage("§6Rainbow particle color: /ftc rainbow");
+				p.sendMessage("§6To disable rainbow particle color set your particle color to any rgb value");
+				p.sendMessage("§6Uses RGB Values. For more information or to report a bug:");
+				p.sendMessage("§6https://github.com/Lilyp3892/FireworkTrailColors");
 				return false;
 			}
-			else if(args.length == 1 && args[0].equalsIgnoreCase("rainbow"))
+			else if (args.length == 1 && args[0].equalsIgnoreCase("rainbow"))
 			{
-				FileHandler.write(p.getUniqueId(), -2, -2, -2, true); //-2 is used for referencing rainbow particle colors in the files
+				FileHandler.write(p.getUniqueId(), -2, -2, -2, true);
 				p.sendMessage("§aFTC: Success! Color changed to: §cR§6a§ei§an§9b§bo§dw");
+				return true;
 			}
 			else
 			{
@@ -53,7 +55,6 @@ public class ToggleCommandExecutor implements CommandExecutor
 		{
 			return false;
 		}
-		return false;
 	}
 	
 	private boolean toggleParticles(Player p)
@@ -89,8 +90,6 @@ public class ToggleCommandExecutor implements CommandExecutor
 			}
 			return true;
 		}
-		// Whenever you expect something to fail, be as specific with the resulting exception as possible. A general "Exception" should only be caught as a
-		// last fail-safe.
 		catch (NumberFormatException e)
 		{
 			p.sendMessage("§4FTC: Error! All 3 arguments must be a valid numbers between 0 and 255! Use \"/ftc help\" for more information");

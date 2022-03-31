@@ -8,7 +8,6 @@ public class StateRecord
 {
 	private Map<UUID, TrailColorRecord> colorMap;
 	
-	// It's good practice to always initialize collections so that they are never null.
 	public StateRecord()
 	{
 		this.colorMap = new HashMap<>();
