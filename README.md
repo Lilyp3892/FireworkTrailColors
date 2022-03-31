@@ -16,6 +16,11 @@ Changes firework trail color:
 ```
 Example: `/ftc 255 105 180` for pink
 
+Changes firework trail color to rainbow:
+```
+/ftc rainbow
+```
+
 ## Looking for a common color?
 https://colorcodes.io/
 ## Want to use a color picker?
