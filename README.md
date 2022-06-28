@@ -1,5 +1,5 @@
 # FireworkTrailColors
-A Minecraft Paper Plugin for 1.18.2
+A Minecraft Paper Plugin for 1.18.2-1.19
 
 Commands:
 Shows help page:
